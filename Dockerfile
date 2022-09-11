@@ -9,8 +9,8 @@ WORKDIR /dlib/build
 RUN cmake -DCMAKE_C_COMPILER=afl-clang -DCMAKE_CXX_COMPILER=afl-clang++ ..
 RUN make
 RUN make install
-COPY fuzzers/fuzz_xml.cpp .
-RUN afl-clang++ -I/usr/local/include fuzz_xml.cpp -o /xml_fuzz /usr/local/lib/libdlib.a
+COPY fuzzers/fuzz.cpp .
+RUN afl-clang++ -I/usr/local/include fuzz.cpp -o /xml_fuzz /usr/local/lib/libdlib.a
 RUN mkdir /dlibXmlCorpus
 RUN wget https://github.com/strongcourage/fuzzing-corpus/blob/master/xml/test.xml
 RUN wget https://github.com/strongcourage/fuzzing-corpus/blob/master/xml/mozilla/107518-1.xml
