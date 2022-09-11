@@ -20,7 +20,7 @@ RUN wget https://github.com/strongcourage/fuzzing-corpus/blob/master/xml/mozilla
 RUN wget https://github.com/strongcourage/fuzzing-corpus/blob/master/xml/mozilla/323737-1.xml
 RUN wget https://github.com/strongcourage/fuzzing-corpus/blob/master/xml/mozilla/323738-1.xml
 RUN wget https://github.com/strongcourage/fuzzing-corpus/blob/master/xml/mozilla/342954-2-xbl.xml
-RUN cp *.xml /dlibXmlCorus
+RUN cp *.xml /dlibXmlCorpus
 
 ENTRYPOINT ["afl-fuzz", "-i", "/dlibXmlCorpus", "-o", "/dlibOut"]
 CMD  ["/xml_fuzz", "@@"]
